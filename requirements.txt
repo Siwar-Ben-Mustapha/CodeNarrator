@@ -1,0 +1,20 @@
+# core (training, evaluation, inference)
+torch>=2.0
+numpy
+pandas
+matplotlib
+
+# web backend
+fastapi
+uvicorn
+httpx            # FastAPI TestClient (tests)
+
+# notebook execution
+ipykernel
+nbformat
+nbclient
+pyzmq>=26        # Windows: older pyzmq makes `import torch` fail inside Jupyter kernels (WinError 1114)
+
+# optional: cross-check of our ROUGE / BLEU implementations in tests/test_metrics.py
+rouge-score
+nltk

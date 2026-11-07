@@ -1,0 +1,11 @@
+,,rouge1,rouge1,rouge2,rouge2,rougeL,rougeL,bleu,bleu,exact_match,exact_match,token_acc,token_acc,entity_recall,entity_recall
+,,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std
+split,model,,,,,,,,,,,,,,
+test_familiar,attention,99.8,0.0,99.7,0.0,99.8,0.0,99.6,0.0,98.9,0.0,99.9,0.0,100.0,0.0
+test_familiar,baseline,72.8,38.7,63.6,47.8,71.8,40.4,61.3,47.3,45.6,39.5,68.4,46.4,56.0,45.9
+test_novel,attention,99.6,0.0,99.2,0.1,99.6,0.0,98.8,0.1,95.4,0.2,99.7,0.0,97.8,0.2
+test_novel,baseline,74.6,38.5,65.8,49.3,73.3,40.6,64.2,49.4,52.3,44.7,69.3,46.8,64.0,44.6
+test_unseen,attention,35.2,4.4,20.3,3.4,33.8,4.2,15.8,4.2,0.0,0.0,22.3,1.5,16.5,8.9
+test_unseen,baseline,27.7,4.9,8.8,2.8,24.2,3.7,6.4,3.1,0.0,0.0,14.2,0.8,21.3,1.8
+val_familiar,attention,99.8,0.0,99.7,0.0,99.8,0.0,99.6,0.1,98.8,0.1,99.9,0.0,100.0,0.0
+val_familiar,baseline,72.8,38.6,63.5,47.8,71.8,40.4,61.2,47.2,45.3,39.3,68.4,46.4,55.6,45.6

@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+body { background: #070b14; color: #e2e8f0; font-family: ui-sans-serif, system-ui, sans-serif; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.fade-up { animation: fadeUp .5s ease both; }
+@keyframes blob { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-20px) scale(1.1); } }
+.blob { animation: blob 14s ease-in-out infinite; }
+
+/* Prism tokens (dark) */
+.token.keyword, .token.builtin { color: #c084fc; }
+.token.string { color: #86efac; }
+.token.number { color: #fdba74; }
+.token.comment { color: #64748b; font-style: italic; }
+.token.function, .token.class-name { color: #7dd3fc; }
+.token.punctuation, .token.operator { color: #94a3b8; }
+.token.tb-error { color: #fca5a5; font-weight: 600; }
+.token.tb-head { color: #fcd34d; }

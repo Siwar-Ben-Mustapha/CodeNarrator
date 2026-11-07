@@ -1,0 +1,7 @@
+model,seed,probe_rougeL
+baseline,42,93.43819143819145
+attention,42,100.0
+baseline,43,96.52910052910053
+attention,43,99.39393939393939
+baseline,44,88.24992308459801
+attention,44,100.0

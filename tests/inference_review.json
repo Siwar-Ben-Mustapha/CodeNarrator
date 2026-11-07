@@ -1,0 +1,142 @@
+{
+ "zero_division_1line": {
+  "verdict": "correct",
+  "note": "Bare one-line input: works because the header adapter wraps it (without it the first word was dropped).",
+  "reviewed_output": "The calculation failed because the divisor was zero."
+ },
+ "key_error_1line": {
+  "verdict": "partially correct",
+  "note": "Key name copied correctly, but \"configuration lookup\" is a guess: three KeyError families exist and a bare line carries no code context.",
+  "reviewed_output": "The configuration lookup failed because the key username is missing."
+ },
+ "name_error_1line": {
+  "verdict": "correct",
+  "note": "Identifier copied through a copy slot.",
+  "reviewed_output": "The program referenced total_price before defining it."
+ },
+ "index_error_1line": {
+  "verdict": "correct",
+  "note": "",
+  "reviewed_output": "The application attempted to access a list position that does not exist."
+ },
+ "type_error_1line": {
+  "verdict": "correct",
+  "note": "Meaning right; grammar slip \"a int\" copied from the training wording.",
+  "reviewed_output": "The calculation failed because a int value was added to a string."
+ },
+ "attribute_error_1line": {
+  "verdict": "incorrect",
+  "note": "Hallucinated attribute \"currency\" instead of \"append\": \"append\" is a known source word but never occurs in any training summary, so it is not copied (known limitation).",
+  "reviewed_output": "The application tried to access the currency attribute on a NoneType object that does not provide it."
+ },
+ "file_not_found": {
+  "verdict": "correct",
+  "note": "",
+  "reviewed_output": "The application could not read customers.csv because the file does not exist."
+ },
+ "pandas_key_error": {
+  "verdict": "correct",
+  "note": "df[...] context correctly selects the pandas wording.",
+  "reviewed_output": "The pandas operation failed because column email is missing."
+ },
+ "module_not_found": {
+  "verdict": "correct",
+  "note": "Unseen module name copied.",
+  "reviewed_output": "The application could not import the xgboost module because it was not found."
+ },
+ "recursion_error": {
+  "verdict": "correct",
+  "note": "",
+  "reviewed_output": "The recursive function exceeded Python’s maximum recursion depth."
+ },
+ "sqlite_unique": {
+  "verdict": "correct",
+  "note": "",
+  "reviewed_output": "The database insert violated a uniqueness constraint on users.email."
+ },
+ "read_timeout": {
+  "verdict": "correct",
+  "note": "Host copied correctly.",
+  "reviewed_output": "The HTTP request to api.shop.test timed out while waiting for a response."
+ },
+ "json_decode": {
+  "verdict": "correct",
+  "note": "",
+  "reviewed_output": "JSON parsing failed because a property name was not correctly quoted."
+ },
+ "value_error_int": {
+  "verdict": "correct",
+  "note": "Unseen token \"twenty\" copied.",
+  "reviewed_output": "The application could not convert twenty to an integer."
+ },
+ "unseen_key_name": {
+  "verdict": "correct",
+  "note": "Long identifier with digits and underscores copied.",
+  "reviewed_output": "The dictionary lookup failed because the key qty_in_stock_2024 is missing."
+ },
+ "weird_variable": {
+  "verdict": "correct",
+  "note": "Unusual identifier copied.",
+  "reviewed_output": "The program referenced xX_temp_Xx before defining it."
+ },
+ "hyphen_file": {
+  "verdict": "partially correct",
+  "note": "Right error, wrong file name: \"sales-2024-q1.csv\" is split at hyphens and only \"q1.csv\" is reproduced (tokenizer limitation).",
+  "reviewed_output": "The application could not read q1.csv because the file does not exist."
+ },
+ "custom_class_attr": {
+  "verdict": "correct",
+  "note": "Two unseen identifiers copied with two slots.",
+  "reviewed_output": "The application tried to access the fit_transform attribute on a DataLoader object that does not provide it."
+ },
+ "old_sklearn_import": {
+  "verdict": "partially correct",
+  "note": "Name copied, but the module is \"cross_validation\" instead of \"sklearn.cross_validation\" (dotted name split).",
+  "reviewed_output": "The application could not import train_test_split from the cross_validation module."
+ },
+ "unseen_pop_empty": {
+  "verdict": "incorrect",
+  "note": "Unsupported family: fluent but wrong (\"pop position does not exist\"); the model has no summary for this error.",
+  "reviewed_output": "The application attempted to access a pop position that does not exist."
+ },
+ "unseen_array_truth": {
+  "verdict": "incorrect",
+  "note": "Unsupported family: unrelated sentence about a cancelled concurrent task.",
+  "reviewed_output": "The application could not retrieve the result because the concurrent task was cancelled."
+ },
+ "unseen_custom_exception": {
+  "verdict": "incorrect",
+  "note": "Unseen exception class: invents \"the card table is missing\" (hallucination). The API warns about unseen exception types.",
+  "reviewed_output": "The card operation failed because the card table is missing."
+ },
+ "unseen_unicode_error": {
+  "verdict": "incorrect",
+  "note": "Unsupported family: unrelated sentence.",
+  "reviewed_output": "The function UTF was called with more arguments than it accepts."
+ },
+ "unseen_zip_error": {
+  "verdict": "incorrect",
+  "note": "Unsupported family: unrelated sentence about a closed file.",
+  "reviewed_output": "The application attempted to use a file that was already closed."
+ },
+ "deep_stack_12_frames": {
+  "verdict": "correct",
+  "note": "Robust to a 12-frame stack.",
+  "reviewed_output": "The application could not access results.txt because permission was denied."
+ },
+ "windows_paths": {
+  "verdict": "correct",
+  "note": "Backslash paths in frames are harmless.",
+  "reviewed_output": "The application could not read notes.txt because the file does not exist."
+ },
+ "chained_exception": {
+  "verdict": "incorrect",
+  "note": "Chained tracebacks were never seen: the model mixes the first exception (int conversion) with the final identifier.",
+  "reviewed_output": "The application could not convert config to an integer."
+ },
+ "not_a_traceback": {
+  "verdict": "incorrect",
+  "note": "Not an error at all; the model still produces a confident sentence. The API flags such inputs.",
+  "reviewed_output": "The called method has not been implemented."
+ }
+}

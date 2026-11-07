@@ -1,0 +1,35 @@
+{
+ "config": {
+  "emb_dim": 128,
+  "enc_hidden": 256,
+  "dec_hidden": 256,
+  "num_layers": 1,
+  "bidirectional": true,
+  "dropout": 0.3,
+  "attn_dim": 128,
+  "batch_size": 64,
+  "lr": 0.001,
+  "epochs": 30,
+  "patience": 5,
+  "clip": 1.0,
+  "teacher_forcing": 1.0,
+  "max_src_len": 192,
+  "max_tgt_len": 32,
+  "min_freq_src": 2,
+  "min_freq_tgt": 1,
+  "normalize_line_numbers": true,
+  "use_slots": true,
+  "p_mask": 0.5,
+  "p_unk": 0.15,
+  "select_on": "familiar"
+ },
+ "seeds": [
+  42,
+  43,
+  44
+ ],
+ "best": {
+  "name": "attention",
+  "seed": 43
+ }
+}

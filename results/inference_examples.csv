@@ -1,0 +1,127 @@
+case,kind,input,intended_meaning,output,error,latency_ms,deterministic,copy_slots_used,unseen_words_copied,empty,repetitive,words_not_in_input_or_templates,rougeL_vs_intended,verdict,note
+zero_division_1line,single_line,ZeroDivisionError: division by zero,The calculation failed because the divisor was zero.,The calculation failed because the divisor was zero.,,17.6,True,0,,False,False,divisor,100.0,correct,Bare one-line input: works because the header adapter wraps it (without it the first word was dropped).
+key_error_1line,single_line,KeyError: 'username',A lookup failed because the key username is missing.,The configuration lookup failed because the key username is missing.,,19.2,True,1,username,False,False,configuration,84.2,partially correct,"Key name copied correctly, but ""configuration lookup"" is a guess: three KeyError families exist and a bare line carries no code context."
+name_error_1line,single_line,NameError: name 'total_price' is not defined,The program referenced total_price before defining it.,The program referenced total_price before defining it.,,17.3,True,1,total_price,False,False,defining|referenced,100.0,correct,Identifier copied through a copy slot.
+index_error_1line,single_line,IndexError: list index out of range,A list position that does not exist was accessed.,The application attempted to access a list position that does not exist.,,21.5,True,0,,False,False,,66.7,correct,
+type_error_1line,single_line,TypeError: unsupported operand type(s) for +: 'int' and 'str',An integer was added to a string.,The calculation failed because a int value was added to a string.,,26.1,True,0,,False,False,added,52.6,correct,"Meaning right; grammar slip ""a int"" copied from the training wording."
+attribute_error_1line,single_line,AttributeError: 'NoneType' object has no attribute 'append',The append attribute was accessed on a NoneType object.,The application tried to access the currency attribute on a NoneType object that does not provide it.,,26.5,True,0,,False,False,currency,46.2,incorrect,"Hallucinated attribute ""currency"" instead of ""append"": ""append"" is a known source word but never occurs in any training summary, so it is not copied (known limitation)."
+file_not_found,multiline,"Traceback (most recent call last):
+  File ""pipeline.py"", line 82, in run_pipeline
+    data = load_records(""customers.csv"")
+  File ""loader.py"", line 27, in load_records
+    return pd.read_csv(""customers.csv"")
+FileNotFoundError: [Errno 2] No such file or directory: 'customers.csv'",customers.csv could not be read because the file does not exist.,The application could not read customers.csv because the file does not exist.,,34.2,True,0,,False,False,read,72.0,correct,
+pandas_key_error,multiline,"Traceback (most recent call last):
+  File ""analysis.py"", line 20, in clean
+    emails = df[""email""].str.lower()
+KeyError: 'email'",The pandas operation failed because column email is missing.,The pandas operation failed because column email is missing.,,21.8,True,0,,False,False,,100.0,correct,df[...] context correctly selects the pandas wording.
+module_not_found,multiline,"Traceback (most recent call last):
+  File ""train.py"", line 1, in <module>
+    import xgboost
+ModuleNotFoundError: No module named 'xgboost'",The xgboost module could not be imported because it was not found.,The application could not import the xgboost module because it was not found.,,26.5,True,1,xgboost,False,False,,64.0,correct,Unseen module name copied.
+recursion_error,multiline,"Traceback (most recent call last):
+  File ""main.py"", line 10, in <module>
+    print(factorial(5000))
+  File ""main.py"", line 6, in factorial
+    return n * factorial(n - 1)
+  File ""main.py"", line 6, in factorial
+    return n * factorial(n - 1)
+RecursionError: maximum recursion depth exceeded in comparison",The recursive function exceeded Python's maximum recursion depth.,The recursive function exceeded Python’s maximum recursion depth.,,28.0,True,0,,False,False,recursive,100.0,correct,
+sqlite_unique,multiline,"Traceback (most recent call last):
+  File ""register.py"", line 18, in create_user
+    cur.execute(""INSERT INTO users (email) VALUES (?)"", (email,))
+sqlite3.IntegrityError: UNIQUE constraint failed: users.email",The insert violated a uniqueness constraint on users.email.,The database insert violated a uniqueness constraint on users.email.,,28.0,True,0,,False,False,uniqueness,94.7,correct,
+read_timeout,multiline,"Traceback (most recent call last):
+  File ""sync.py"", line 55, in pull
+    r = requests.get(""https://api.shop.test/items"", timeout=5)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.shop.test', port=443): Read timed out. (read timeout=5)",The request to api.shop.test timed out while waiting for a response.,The HTTP request to api.shop.test timed out while waiting for a response.,,48.5,True,1,shop,False,False,response,96.3,correct,Host copied correctly.
+json_decode,multiline,"Traceback (most recent call last):
+  File ""app.py"", line 33, in load_payload
+    data = json.loads(body)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)",JSON parsing failed because a property name was not quoted.,JSON parsing failed because a property name was not correctly quoted.,,33.3,True,0,,False,False,correctly|quoted,95.2,correct,
+value_error_int,multiline,"Traceback (most recent call last):
+  File ""form.py"", line 22, in read_age
+    age = int(text)
+ValueError: invalid literal for int() with base 10: 'twenty'",twenty could not be converted to an integer.,The application could not convert twenty to an integer.,,26.0,True,1,twenty,False,False,,58.8,correct,"Unseen token ""twenty"" copied."
+unseen_key_name,unusual_identifier,"Traceback (most recent call last):
+  File ""inventory.py"", line 7, in stock
+    return row[""qty_in_stock_2024""]
+KeyError: 'qty_in_stock_2024'",The key qty_in_stock_2024 is missing.,The dictionary lookup failed because the key qty_in_stock_2024 is missing.,,28.0,True,1,qty_in_stock_2024,False,False,,76.2,correct,Long identifier with digits and underscores copied.
+weird_variable,unusual_identifier,"Traceback (most recent call last):
+  File ""calc.py"", line 4, in <module>
+    print(xX_temp_Xx + 1)
+NameError: name 'xX_temp_Xx' is not defined",xX_temp_Xx was referenced before it was defined.,The program referenced xX_temp_Xx before defining it.,,29.1,True,1,xX_temp_Xx,False,False,defining|referenced,55.6,correct,Unusual identifier copied.
+hyphen_file,unusual_identifier,"Traceback (most recent call last):
+  File ""etl.py"", line 9, in <module>
+    open(""sales-2024-q1.csv"")
+FileNotFoundError: [Errno 2] No such file or directory: 'sales-2024-q1.csv'",sales-2024-q1.csv could not be read because it does not exist.,The application could not read q1.csv because the file does not exist.,,44.9,True,1,q1,False,False,read,53.8,partially correct,"Right error, wrong file name: ""sales-2024-q1.csv"" is split at hyphens and only ""q1.csv"" is reproduced (tokenizer limitation)."
+custom_class_attr,unusual_identifier,"Traceback (most recent call last):
+  File ""model.py"", line 31, in fit
+    self.scaler.fit_transform(X)
+AttributeError: 'DataLoader' object has no attribute 'fit_transform'",The fit_transform attribute was accessed on a DataLoader object that does not provide it.,The application tried to access the fit_transform attribute on a DataLoader object that does not provide it.,,39.5,True,2,DataLoader|fit_transform,False,False,,78.8,correct,Two unseen identifiers copied with two slots.
+old_sklearn_import,unusual_identifier,"Traceback (most recent call last):
+  File ""split.py"", line 1, in <module>
+    from sklearn.cross_validation import train_test_split
+ImportError: cannot import name 'train_test_split' from 'sklearn.cross_validation'",train_test_split could not be imported from sklearn.cross_validation.,The application could not import train_test_split from the cross_validation module.,,30.8,True,2,train_test_split|cross_validation,False,False,,50.0,partially correct,"Name copied, but the module is ""cross_validation"" instead of ""sklearn.cross_validation"" (dotted name split)."
+unseen_pop_empty,unsupported_family,"Traceback (most recent call last):
+  File ""queue.py"", line 12, in drain
+    items.pop()
+IndexError: pop from empty list",An item was removed from an empty list.,The application attempted to access a pop position that does not exist.,,31.5,True,2,pop,False,False,,0.0,incorrect,"Unsupported family: fluent but wrong (""pop position does not exist""); the model has no summary for this error."
+unseen_array_truth,unsupported_family,"Traceback (most recent call last):
+  File ""mask.py"", line 5, in keep
+    if mask:
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all().",An array with several elements was used as a single truth value.,The application could not retrieve the result because the concurrent task was cancelled.,,37.8,True,5,,False,False,cancelled|concurrent|result|retrieve,8.0,incorrect,Unsupported family: unrelated sentence about a cancelled concurrent task.
+unseen_custom_exception,unsupported_family,"Traceback (most recent call last):
+  File ""pay.py"", line 40, in charge
+    raise PaymentError(""card declined"")
+PaymentError: card declined",A payment was refused because the card was declined.,The card operation failed because the card table is missing.,,29.1,True,2,card,False,True,table,31.6,incorrect,"Unseen exception class: invents ""the card table is missing"" (hallucination). The API warns about unseen exception types."
+unseen_unicode_error,unsupported_family,"Traceback (most recent call last):
+  File ""io.py"", line 3, in read
+    data.decode(""utf-16"")
+UnicodeError: UTF-16 stream does not start with BOM",UTF-16 decoding failed because the BOM is missing.,The function UTF was called with more arguments than it accepts.,,35.4,True,2,UTF,False,False,accepts|arguments,10.0,incorrect,Unsupported family: unrelated sentence.
+unseen_zip_error,unsupported_family,"Traceback (most recent call last):
+  File ""pack.py"", line 8, in unpack
+    zipfile.ZipFile(""archive.zip"")
+zipfile.BadZipFile: File is not a zip file",The file is not a valid zip archive.,The application attempted to use a file that was already closed.,,32.6,True,0,,False,False,,21.1,incorrect,Unsupported family: unrelated sentence about a closed file.
+deep_stack_12_frames,edge_case,"Traceback (most recent call last):
+  File ""layer0.py"", line 10, in step_0
+    step_1(data)
+  File ""layer1.py"", line 11, in step_1
+    step_2(data)
+  File ""layer2.py"", line 12, in step_2
+    step_3(data)
+  File ""layer3.py"", line 13, in step_3
+    step_4(data)
+  File ""layer4.py"", line 14, in step_4
+    step_5(data)
+  File ""layer5.py"", line 15, in step_5
+    step_6(data)
+  File ""layer6.py"", line 16, in step_6
+    step_7(data)
+  File ""layer7.py"", line 17, in step_7
+    step_8(data)
+  File ""layer8.py"", line 18, in step_8
+    step_9(data)
+  File ""layer9.py"", line 19, in step_9
+    step_10(data)
+  File ""layer10.py"", line 20, in step_10
+    step_11(data)
+  File ""store.py"", line 77, in save
+    open(""results.txt"", ""w"")
+PermissionError: [Errno 13] Permission denied: 'results.txt'",results.txt could not be accessed because permission was denied.,The application could not access results.txt because permission was denied.,,81.3,True,0,,False,False,,57.1,correct,Robust to a 12-frame stack.
+windows_paths,edge_case,"Traceback (most recent call last):
+  File ""C:\Users\me\proj\app.py"", line 3, in <module>
+    open(""notes.txt"")
+FileNotFoundError: [Errno 2] No such file or directory: 'notes.txt'",notes.txt could not be read because the file does not exist.,The application could not read notes.txt because the file does not exist.,,39.0,True,0,,False,False,read,72.0,correct,Backslash paths in frames are harmless.
+chained_exception,edge_case,"Traceback (most recent call last):
+  File ""a.py"", line 4, in f
+    int(""x"")
+ValueError: invalid literal for int() with base 10: 'x'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""a.py"", line 8, in <module>
+    f()
+KeyError: 'config'",A key lookup failed because the key config is missing.,The application could not convert config to an integer.,,34.0,True,0,,False,False,,21.1,incorrect,Chained tracebacks were never seen: the model mixes the first exception (int conversion) with the final identifier.
+not_a_traceback,edge_case,"hello world, nothing failed here",,The called method has not been implemented.,,15.3,True,0,,False,False,been|implemented|method,,incorrect,Not an error at all; the model still produces a confident sentence. The API flags such inputs.

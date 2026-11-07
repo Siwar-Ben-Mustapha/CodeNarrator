@@ -1,0 +1,7 @@
+,,rouge1,rouge1,rouge2,rouge2,rougeL,rougeL,exact_match,exact_match,token_acc,token_acc,entity_recall,entity_recall
+,,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std
+split,model,,,,,,,,,,,,
+test_familiar,baseline,97.35,,95.17,,97.35,,79.87,,97.85,,90.87,
+test_novel,baseline,98.38,,97.07,,98.38,,86.9,,98.52,,93.86,
+test_unseen,baseline,30.77,,9.65,,24.77,,0.0,,9.5,,34.96,
+val_familiar,baseline,97.45,,95.25,,97.44,,80.38,,97.86,,91.12,

@@ -1,0 +1,16 @@
+model,seed,case,reference,prediction
+baseline,43,ZeroDivisionError,The calculation failed because the divisor was zero.,The calculation failed because the divisor was zero.
+baseline,43,"KeyError (dict, unseen key)",The dictionary lookup failed because the key revenue is missing.,The pandas operation failed because column revenue is missing.
+baseline,43,KeyError (pandas),The pandas operation failed because column email is missing.,The pandas operation failed because column quantity is missing.
+baseline,43,TypeError int+str,The calculation failed because a float value was added to a string.,The calculation failed because a int value was added to a string.
+baseline,43,RecursionError,The recursive function exceeded Python’s maximum recursion depth.,The recursive function exceeded Python’s maximum recursion depth.
+baseline,43,JSONDecodeError,JSON parsing failed because a property name was not correctly quoted.,JSON parsing failed because a property name was not correctly quoted.
+baseline,43,sqlite3 UNIQUE,The database insert violated a uniqueness constraint on users.email.,The database insert violated a uniqueness constraint on accounts.<UNK>.
+baseline,43,sqlite3 NOT NULL,The database insert failed because orders.customer_id cannot be null.,The database insert failed because logs.<UNK> cannot be null.
+baseline,43,ReadTimeout,The HTTP request to api.shop.test timed out while waiting for a response.,The HTTP request to shop.example.test timed out while waiting for a response.
+baseline,43,FileNotFoundError,The application could not read sales_2023.csv because the file does not exist.,The application could not read sales_2023.json because the file does not exist.
+baseline,43,ModuleNotFoundError,The application could not import the xgboost module because it was not found.,The application could not import the xgboost module because it was not found.
+baseline,43,IndexError,The application attempted to access a list position that does not exist.,The application attempted to access a list position that does not exist.
+baseline,43,AttributeError,The application tried to access the group attribute on a NoneType object that does not provide it.,The application tried to access the <UNK> attribute on a group object that does not provide it.
+baseline,43,PermissionError,The application could not access /etc/hosts because permission was denied.,The application could not access etc.hosts because permission was denied.
+baseline,43,ValueError int(),The application could not convert twenty to an integer.,The application could not convert twenty to an integer.
