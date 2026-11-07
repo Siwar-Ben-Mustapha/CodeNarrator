@@ -11,9 +11,11 @@ It compares two sequence-to-sequence models written in **PyTorch** — a **BiLST
 
 ## Demo
 
-▶ **[Watch the demo video](docs/demo/CodeNarrator_demo.mp4)** (50 s, recorded on the real app with the saved model — nothing is mocked)
+<p align="center">
+  <img src="docs/demo/CodeNarrator_demo.gif" alt="CodeNarrator animated demo" width="800">
+</p>
 
-<!-- To play the video inline on GitHub: edit this README in the web editor, drag docs/demo/CodeNarrator_demo.mp4 into it, and keep the generated link. -->
+Recorded on the real app with the saved model — nothing is mocked. [Full-quality video (MP4)](docs/demo/CodeNarrator_demo.mp4).
 
 Example outputs from the saved model:
 
